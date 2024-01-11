@@ -11,7 +11,7 @@ Juego para Infantil
 
 Puedes probar el juego en esta url:
 
-https://axelcotongutierrez.github.io/SistemaNumericoDecimal/
+https://axelcotongutierrez.github.io/Juego-Figuras-Planas1/
 
 ¡Bienvenido a nuestra emocionante aventura de aprendizaje sobre formas geométricas! En este juego, te divertirás descubriendo y diferenciando entre cuadrados, círculos y triángulos.
 
