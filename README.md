@@ -15,8 +15,6 @@ https://axelcotongutierrez.github.io/Juego-Figuras-Planas1/
 
 ¡Bienvenido a nuestra emocionante aventura de aprendizaje sobre formas geométricas! En este juego, te divertirás descubriendo y diferenciando entre cuadrados, círculos y triángulos.
 
-Comenzarás en el primer nivel, donde explorarás estas formas simples. A medida que avances y te sientas más cómodo, podrás descubrir formas más complejas y emocionantes.
-
 Aquí hay algunas pistas para ayudarte:
 
 Cuadrado: Imagina un chocolate cuadrado. ¡Tiene cuatro lados iguales y cuatro esquinas!
