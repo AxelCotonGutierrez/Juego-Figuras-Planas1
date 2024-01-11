@@ -1,3 +1,4 @@
+// Axel Cotón Gutiérrez Copyright 2023
 document.addEventListener('DOMContentLoaded', iniciarJuego);
 
 let ultimaFigura = '';
