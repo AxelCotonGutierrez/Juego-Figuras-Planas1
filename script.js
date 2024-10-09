@@ -3,6 +3,10 @@ const audioPregunta = new Audio('https://raw.githubusercontent.com/AxelCotonGuti
 const felicidadesAudio = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Felicidades.mp3');
 const intentarAudio = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Intentar.mp3');
 
+// Acceder al botón de silencio y al icono del megáfono en el DOM
+const soundControl = document.querySelector('#sound-control');
+const megaphoneIconPregunta = document.querySelector('#megaphone-icon-pregunta');
+
 document.addEventListener('DOMContentLoaded', iniciarJuego);
 
 let ultimaFigura = '';
@@ -77,18 +81,12 @@ function verificarRespuesta(respuesta) {
 
 // Función para reproducir el sonido de la pregunta
 function playAudioPregunta() {
-    if (document.getElementById('sound-control').checked) {
-        audioPregunta.play().then(() => {
-            console.log('Sonido de la pregunta reproducido correctamente');
-        }).catch(error => {
-            console.error('Error al reproducir el sonido de la pregunta:', error);
-        });
-    }
+    playAudio(audioPregunta);
 }
 
-// Función para reproducir audios de felicitaciones o inténtalo de nuevo
+// Función para reproducir audios si el sonido está activado
 function playAudio(audioElement) {
-    if (document.getElementById('sound-control').checked) {
+    if (soundControl.checked) {
         audioElement.play().then(() => {
             console.log('Audio reproducido correctamente');
         }).catch(error => {
