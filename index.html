@@ -36,22 +36,22 @@
 
     <div class="container">
         <div id="figura"></div>
-        <div id="buttons-container">
-          <button class="guess-button" onclick="verificarRespuesta('Triángulo')">Triángulo</button>
-          
-          <button class="guess-button"  onclick="verificarRespuesta('Cuadrado')">Cuadrado</button>
-         
-          <button class="guess-button"  onclick="verificarRespuesta('Círculo')">Círculo</button>
-          
+        <div class="button-megaphone-container">
+          <div class="button-megaphone-pair">
+              <button class="guess-button" onclick="verificarRespuesta('Triángulo')">Triángulo</button>
+              <img src="img/Megafono.png" class="audio-icon" onclick="playAudioFigura('Triángulo')" alt="Reproducir Triángulo" style="cursor: pointer; width: 30px;">
+          </div>
+      
+          <div class="button-megaphone-pair">
+              <button class="guess-button" onclick="verificarRespuesta('Cuadrado')">Cuadrado</button>
+              <img src="img/Megafono.png" class="audio-icon" onclick="playAudioFigura('Cuadrado')" alt="Reproducir Cuadrado" style="cursor: pointer; width: 30px;">
+          </div>
+      
+          <div class="button-megaphone-pair">
+              <button class="guess-button" onclick="verificarRespuesta('Círculo')">Círculo</button>
+              <img src="img/Megafono.png" class="audio-icon" onclick="playAudioFigura('Círculo')" alt="Reproducir Círculo" style="cursor: pointer; width: 30px;">
+          </div>
       </div>
-      <div id="megafonos">
-        
-        <img src="img/Megafono.png" class="audio-icon" onclick="playAudioFigura('Triángulo')" alt="Reproducir Triángulo" style="cursor: pointer; width: 30px;">
-        
-        <img src="img/Megafono.png" class="audio-icon" onclick="playAudioFigura('Cuadrado')" alt="Reproducir Cuadrado" style="cursor: pointer; width: 30px;">
-        
-        <img src="img/Megafono.png" class="audio-icon" onclick="playAudioFigura('Círculo')" alt="Reproducir Círculo" style="cursor: pointer; width: 30px;">
-    </div>
         
         <div class="pregunta2" id="result"></div>
         <button class="guess-button" id="reiniciar" onclick="iniciarJuego()">Volver a jugar</button>
