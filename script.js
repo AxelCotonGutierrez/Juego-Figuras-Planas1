@@ -76,7 +76,7 @@ function verificarRespuesta(respuesta) {
     document.getElementById('reiniciar').style.display = 'block';
 }
 
-// Función para reproducir el sonido de la figura seleccionada a través del megáfono
+// Función para reproducir el sonido correspondiente al icono de megáfono seleccionado
 function playAudioFigura(figura) {
     if (document.getElementById('sound-control').checked) {
         switch (figura) {
@@ -92,6 +92,7 @@ function playAudioFigura(figura) {
         }
     }
 }
+
 
 // Función para reproducir el sonido de la pregunta
 function playAudioPregunta() {
