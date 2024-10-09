@@ -1,11 +1,10 @@
-// Cargar archivos de audio para la pregunta, felicitaciones e inténtalo de nuevo
+// Cargar archivos de audio para la pregunta, las figuras, felicitaciones e inténtalo de nuevo
 const audioPregunta = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Pregunta.mp3');
+const audioTriangulo = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Triangulo.mp3');
+const audioCuadrado = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Cuadrado.mp3');
+const audioCirculo = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Circulo.mp3');
 const felicidadesAudio = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Felicidades.mp3');
 const intentarAudio = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Intentar.mp3');
-
-// Acceder al botón de silencio y al icono del megáfono en el DOM
-const soundControl = document.querySelector('#sound-control');
-const megaphoneIconPregunta = document.querySelector('#megaphone-icon-pregunta');
 
 document.addEventListener('DOMContentLoaded', iniciarJuego);
 
@@ -84,9 +83,27 @@ function playAudioPregunta() {
     playAudio(audioPregunta);
 }
 
+// Función para reproducir el sonido correspondiente al icono de megáfono seleccionado
+function playAudioFigura(figura) {
+    let audioElement;
+    switch (figura) {
+        case 'Triángulo':
+            audioElement = audioTriangulo;
+            break;
+        case 'Cuadrado':
+            audioElement = audioCuadrado;
+            break;
+        case 'Círculo':
+            audioElement = audioCirculo;
+            break;
+    }
+
+    playAudio(audioElement);
+}
+
 // Función para reproducir audios si el sonido está activado
 function playAudio(audioElement) {
-    if (soundControl.checked) {
+    if (document.getElementById('sound-control').checked) {
         audioElement.play().then(() => {
             console.log('Audio reproducido correctamente');
         }).catch(error => {
