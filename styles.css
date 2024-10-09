@@ -175,4 +175,7 @@ h1 {
     font-size: 12px;
     
   }
+  #megafonos {
+  gap: 80px; /* Añade espacio entre los megáfonos */
+   }
   }
