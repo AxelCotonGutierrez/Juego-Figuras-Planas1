@@ -1,4 +1,10 @@
-// Axel Cotón Gutiérrez Copyright 2023
+// Cargar archivos de audio para cada figura y felicitaciones
+const audioPregunta = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Pregunta.mp3');
+const audioTriangulo = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/triangulo.mp3');
+const audioCuadrado = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/cuadrado.mp3');
+const audioCirculo = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/circulo.mp3');
+const felicidadesAudio = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Felicidades.mp3');
+
 document.addEventListener('DOMContentLoaded', iniciarJuego);
 
 let ultimaFigura = '';
@@ -20,12 +26,7 @@ function mostrarFiguraAleatoria() {
         figurasDisponibles = figuras.slice();
     }
 
-    console.log('Figuras disponibles:', figurasDisponibles);
-
-    // Elegir una figura aleatoria de las opciones disponibles
     const figuraElegida = figurasDisponibles[Math.floor(Math.random() * figurasDisponibles.length)];
-
-    console.log('Figura elegida:', figuraElegida);
 
     const contenedorFigura = document.getElementById('figura');
     contenedorFigura.className = ''; // Limpiar clases anteriores
@@ -56,9 +57,7 @@ function mostrarFiguraAleatoria() {
     }
 
     contenedorFigura.setAttribute('data-figura', figuraElegida);
-
-    // Actualizar la última figura seleccionada al final de la función
-    ultimaFigura = figuraElegida;
+    ultimaFigura = figuraElegida; // Actualizar la última figura seleccionada
 }
 
 function verificarRespuesta(respuesta) {
@@ -68,10 +67,35 @@ function verificarRespuesta(respuesta) {
     if (respuesta === figuraCorrecta) {
         result.textContent = '¡Correcto! Felicitaciones.';
         result.style.color = "green";
+        playAudio(felicidadesAudio); // Reproducir audio de felicitaciones
     } else {
         result.textContent = `Incorrecto. La respuesta correcta era ${figuraCorrecta}.`;
         result.style.color = "red";
     }
+
     document.getElementById('reiniciar').style.display = 'block';
 }
 
+// Función para reproducir el sonido de la figura seleccionada a través del megáfono
+function playAudioFigura(figura) {
+    if (document.getElementById('sound-control').checked) {
+        switch (figura) {
+            case 'Triángulo':
+                audioTriangulo.play();
+                break;
+            case 'Cuadrado':
+                audioCuadrado.play();
+                break;
+            case 'Círculo':
+                audioCirculo.play();
+                break;
+        }
+    }
+}
+
+// Función para reproducir el sonido de la pregunta
+function playAudioPregunta() {
+    if (document.getElementById('sound-control').checked) {
+        audioPregunta.play();
+    }
+}

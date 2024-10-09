@@ -1,49 +1,68 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego del Cuadrado, Círculo y Triángulo</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="https://axelcotongutierrez.github.io/learningmathematicas/assets/css/nav.css">
     <link rel="icon" href="icon.png" type="image/png">
-	<script src="https://axelcotongutierrez.github.io/learningmathematicas/assets/js/header.js"></script>
+    <script src="https://axelcotongutierrez.github.io/learningmathematicas/assets/js/header.js"></script>
+    <script src="https://axelcotongutierrez.github.io/learningmathematicas/assets/js/footer.js"></script>
+    <!-- Incluir las bibliotecas de Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://axelcotongutierrez.github.io/learningmathematicas/assets/js/contador.js"></script>
 </head>
 <body>
     <header>
-		<div id="header-placeholder"></div>
-		  <h1 style="text-align: center;">JUEGO DEL CUADRADO, CÍRCULO Y TRIÁNGULO</h1>
-		</header>
-	  <br>
+        <div id="header-placeholder"></div>
+        <h1 style="text-align: center;">JUEGO DEL CUADRADO, CÍRCULO Y TRIÁNGULO</h1>
+    </header>
+    <br>
 
- 
-      <p class="textosuperior" style="text-align: center;">Este contenido se vincula con el 
-		<b><a href="https://axelcotongutierrez.github.io/learningmathematicas/projects/Niveles/#level-3-detail" target="_blank">Nivel 3</a></b>
-		 de la materia <a title="Matemáticas" href="https://axelcotongutierrez.github.io/learningmathematicas/tags/?tag=matemáticas" target="_blank"><img class="center-block img-responsive" width="30" alt="Matemáticas" src="/learningmathematicas/assets/images/pages/figuras/Matematicas.png"></a>
-		 y es perteneciente al curso <a title="Infantil" href="https://axelcotongutierrez.github.io/learningmathematicas/tags/?tag=infantil" target="_blank"><img class="center-block img-responsive" style="display: inline-block;" width="30" alt="Infantil" src="/learningmathematicas/assets/images/pages/figuras/infantil.png"></a>
-		</p>
-	  <br>
+    <p class="textosuperior" style="text-align: center;">Este contenido se vincula con el 
+        <b><a href="https://axelcotongutierrez.github.io/learningmathematicas/projects/Niveles/#level-3-detail" target="_blank">Nivel 3</a></b>
+        de la materia <a title="Matemáticas" href="https://axelcotongutierrez.github.io/learningmathematicas/tags/?tag=matemáticas" target="_blank"><img class="center-block img-responsive" width="30" alt="Matemáticas" src="/learningmathematicas/assets/images/pages/figuras/Matematicas.png"></a>
+        y es perteneciente al curso <a title="Infantil" href="https://axelcotongutierrez.github.io/learningmathematicas/tags/?tag=infantil" target="_blank"><img class="center-block img-responsive" style="display: inline-block;" width="30" alt="Infantil" src="/learningmathematicas/assets/images/pages/figuras/infantil.png"></a>
+    </p>
+    <br>
 
     <div class="container2">
-        <span class="pregunta">¿Qué figura plana es?</span></div>
-        <div class="container">
+        <span class="pregunta">¿Qué figura plana ves?</span>
+        <!-- Icono de micrófono para reproducir la pregunta -->
+        <img src="img/Megafono.png" id="megaphone-icon-pregunta" alt="Reproducir pregunta" onclick="playAudioPregunta()" style="cursor: pointer; width: 30px;">
+    </div>
+
+    <div class="container">
         <div id="figura"></div>
         <div id="buttons-container">
             <button class="guess-button" onclick="verificarRespuesta('Triángulo')">Triángulo</button>
-            <button class="guess-button"  onclick="verificarRespuesta('Cuadrado')">Cuadrado</button>
-            <button class="guess-button"  onclick="verificarRespuesta('Círculo')">Círculo</button>
+            <img src="img/Megafono.png" class="audio-icon" onclick="playAudioFigura('Triángulo')" alt="Reproducir Triángulo" style="cursor: pointer; width: 30px;">
+
+            <button class="guess-button" onclick="verificarRespuesta('Cuadrado')">Cuadrado</button>
+            <img src="img/Megafono.png" class="audio-icon" onclick="playAudioFigura('Cuadrado')" alt="Reproducir Cuadrado" style="cursor: pointer; width: 30px;">
+
+            <button class="guess-button" onclick="verificarRespuesta('Círculo')">Círculo</button>
+            <img src="img/Megafono.png" class="audio-icon" onclick="playAudioFigura('Círculo')" alt="Reproducir Círculo" style="cursor: pointer; width: 30px;">
         </div>
         <div class="pregunta2" id="result"></div>
         <button class="guess-button" id="reiniciar" onclick="iniciarJuego()">Volver a jugar</button>
-    </div></div>
-<br>
-<br>
+    </div>
+
+    <!-- Checkbox para controlar el sonido -->
+    <br>
+    <label for="sound-control">Sonido:</label>
+    <input type="checkbox" id="sound-control" checked>
+
+    <br><br>
     <script src="script.js"></script>
     <br>
-	<footer class="footer">
-		<ul class="footer-links">
-			<li><a href="http://github.com/AxelCotonGutierrez"> <img src="githubinverseicon.jpg"></a></li>
-			<li><a href="https://www.youtube.com/@learningmathematicas"> <img src="youtubeinverseicon.jpg"></i></a></li>
-		</ul>
-	</footer>
+    <footer class="footer">
+        <ul class="footer-links">
+            <li><a href="http://github.com/AxelCotonGutierrez"> <img src="githubinverseicon.jpg" alt="GitHub"></a></li>
+            <li><a href="https://www.youtube.com/@learningmathematicas"> <img src="youtubeinverseicon.jpg" alt="YouTube"></a></li>
+        </ul>
+    </footer>
 </body>
 </html>
