@@ -77,6 +77,7 @@ function verificarRespuesta(respuesta) {
         result.style.color = "green";
         playAudio(felicidadesAudio); // Reproducir audio de felicitaciones
         gameOver = true; // Marcar el juego como terminado
+        incrementarContadorFirebase("Infantil/Matemáticas/Geometría/FormasBásicas", "figurasgeometricas1");
         disableGuessButtons(); // Deshabilitar los botones de respuesta
     } else {
         result.textContent = `Incorrecto. La respuesta correcta era ${figuraCorrecta}.`;
