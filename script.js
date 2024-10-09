@@ -1,5 +1,7 @@
-// Cargar archivo de audio para la pregunta
+// Cargar archivos de audio para la pregunta, felicitaciones e inténtalo de nuevo
 const audioPregunta = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Pregunta.mp3');
+const felicidadesAudio = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Felicidades.mp3');
+const intentarAudio = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Intentar.mp3');
 
 document.addEventListener('DOMContentLoaded', iniciarJuego);
 
@@ -63,9 +65,11 @@ function verificarRespuesta(respuesta) {
     if (respuesta === figuraCorrecta) {
         result.textContent = '¡Correcto! Felicitaciones.';
         result.style.color = "green";
+        playAudio(felicidadesAudio); // Reproducir audio de felicitaciones
     } else {
         result.textContent = `Incorrecto. La respuesta correcta era ${figuraCorrecta}.`;
         result.style.color = "red";
+        playAudio(intentarAudio); // Reproducir audio de inténtalo de nuevo
     }
 
     document.getElementById('reiniciar').style.display = 'block';
@@ -78,6 +82,17 @@ function playAudioPregunta() {
             console.log('Sonido de la pregunta reproducido correctamente');
         }).catch(error => {
             console.error('Error al reproducir el sonido de la pregunta:', error);
+        });
+    }
+}
+
+// Función para reproducir audios de felicitaciones o inténtalo de nuevo
+function playAudio(audioElement) {
+    if (document.getElementById('sound-control').checked) {
+        audioElement.play().then(() => {
+            console.log('Audio reproducido correctamente');
+        }).catch(error => {
+            console.error('Error al reproducir el audio:', error);
         });
     }
 }
