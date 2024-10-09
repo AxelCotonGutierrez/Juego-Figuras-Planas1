@@ -171,4 +171,8 @@ h1 {
     .textosuperior {
       font-size: 25px; /* Tamaño de texto superior en dispositivos móviles */
    }
+   .guess-button {
+    font-size: 15px;
+    
+  }
   }
