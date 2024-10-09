@@ -1,3 +1,5 @@
+// Axel Cotón Gutiérrez Copyright 2023
+
 // Cargar archivos de audio para la pregunta, las figuras, felicitaciones e inténtalo de nuevo
 const audioPregunta = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Pregunta.mp3');
 const audioTriangulo = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Triangulo.mp3');
@@ -9,8 +11,11 @@ const intentarAudio = new Audio('https://raw.githubusercontent.com/AxelCotonGuti
 document.addEventListener('DOMContentLoaded', iniciarJuego);
 
 let ultimaFigura = '';
+let gameOver = false; // Variable para controlar el estado del juego
 
 function iniciarJuego() {
+    gameOver = false; // Reiniciar el estado del juego
+    enableGuessButtons(); // Habilitar botones de respuesta
     document.getElementById('result').textContent = '';
     document.getElementById('reiniciar').style.display = 'none';
     mostrarFiguraAleatoria();
@@ -62,6 +67,8 @@ function mostrarFiguraAleatoria() {
 }
 
 function verificarRespuesta(respuesta) {
+    if (gameOver) return; // Si el juego ha terminado, no se permiten más respuestas
+
     const figuraCorrecta = document.getElementById('figura').getAttribute('data-figura');
     const result = document.getElementById('result');
 
@@ -69,13 +76,33 @@ function verificarRespuesta(respuesta) {
         result.textContent = '¡Correcto! Felicitaciones.';
         result.style.color = "green";
         playAudio(felicidadesAudio); // Reproducir audio de felicitaciones
+        gameOver = true; // Marcar el juego como terminado
+        disableGuessButtons(); // Deshabilitar los botones de respuesta
     } else {
         result.textContent = `Incorrecto. La respuesta correcta era ${figuraCorrecta}.`;
         result.style.color = "red";
         playAudio(intentarAudio); // Reproducir audio de inténtalo de nuevo
+        gameOver = true; // Marcar el juego como terminado
+        disableGuessButtons(); // Deshabilitar los botones de respuesta
     }
 
     document.getElementById('reiniciar').style.display = 'block';
+}
+
+// Función para deshabilitar solo los botones de respuesta
+function disableGuessButtons() {
+    const guessButtons = document.querySelectorAll(".guess-button:not(#reiniciar)");
+    guessButtons.forEach(button => {
+        button.disabled = true;
+    });
+}
+
+// Función para habilitar los botones de respuesta
+function enableGuessButtons() {
+    const guessButtons = document.querySelectorAll(".guess-button:not(#reiniciar)");
+    guessButtons.forEach(button => {
+        button.disabled = false;
+    });
 }
 
 // Función para reproducir el sonido de la pregunta
