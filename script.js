@@ -139,14 +139,7 @@ function playAudio(audioElement) {
         });
     }
 }
-// Función para mostrar el contador actual en la página para "figurasgeometricas1"
-function mostrarContador(ruta, juegoId) {
-    const contadorRef = firebase.database().ref(`${ruta}/${juegoId}/contador`);
-    contadorRef.on('value', (snapshot) => {
-        const contador = snapshot.val();
-        document.getElementById('contador').innerText = `Han jugado ${contador || 0} veces.`;
-    });
-}
+
 
 // Llamar a la función para mostrar el contador al cargar la página
 mostrarContador("Infantil/Matemáticas/Geometría/FormasBásicas", "figurasgeometricas1");
