@@ -1,9 +1,5 @@
-// Cargar archivos de audio para cada figura y felicitaciones
+// Cargar archivo de audio para la pregunta
 const audioPregunta = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Pregunta.mp3');
-const audioTriangulo = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/triangulo.mp3');
-const audioCuadrado = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/cuadrado.mp3');
-const audioCirculo = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/circulo.mp3');
-const felicidadesAudio = new Audio('https://raw.githubusercontent.com/AxelCotonGutierrez/Juego-Figuras-Planas1/master/audio/Felicidades.mp3');
 
 document.addEventListener('DOMContentLoaded', iniciarJuego);
 
@@ -67,7 +63,6 @@ function verificarRespuesta(respuesta) {
     if (respuesta === figuraCorrecta) {
         result.textContent = '¡Correcto! Felicitaciones.';
         result.style.color = "green";
-        playAudio(felicidadesAudio); // Reproducir audio de felicitaciones
     } else {
         result.textContent = `Incorrecto. La respuesta correcta era ${figuraCorrecta}.`;
         result.style.color = "red";
@@ -76,27 +71,13 @@ function verificarRespuesta(respuesta) {
     document.getElementById('reiniciar').style.display = 'block';
 }
 
-// Función para reproducir el sonido correspondiente al icono de megáfono seleccionado
-function playAudioFigura(figura) {
-    if (document.getElementById('sound-control').checked) {
-        switch (figura) {
-            case 'Triángulo':
-                audioTriangulo.play();
-                break;
-            case 'Cuadrado':
-                audioCuadrado.play();
-                break;
-            case 'Círculo':
-                audioCirculo.play();
-                break;
-        }
-    }
-}
-
-
 // Función para reproducir el sonido de la pregunta
 function playAudioPregunta() {
     if (document.getElementById('sound-control').checked) {
-        audioPregunta.play();
+        audioPregunta.play().then(() => {
+            console.log('Sonido de la pregunta reproducido correctamente');
+        }).catch(error => {
+            console.error('Error al reproducir el sonido de la pregunta:', error);
+        });
     }
 }
