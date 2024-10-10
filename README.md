@@ -5,13 +5,17 @@
 
 Dentro del blog: https://axelcotongutierrez.github.io/learningmathematicas/
 
-Vídeo Explicativo: https://www.youtube.com/watch?v=MUIwoxFksNU
+Vídeo Explicativo del código: https://www.youtube.com/
 
-Juego para Infantil
+Juego para Infantil para aprender a distinguir entre el cuadrado, el círculo y el triángulo.
 
 Puedes probar el juego en esta url:
 
 https://axelcotongutierrez.github.io/Juego-Figuras-Planas1/
+
+Para saber como jugar solo ver la sección correspondiente en nuestro Canal de Youtube:
+
+https://www.youtube.com/watch?v=MUIwoxFksNU
 
 ¡Bienvenido a nuestra emocionante aventura de aprendizaje sobre formas geométricas! En este juego, te divertirás descubriendo y diferenciando entre cuadrados, círculos y triángulos.
 
