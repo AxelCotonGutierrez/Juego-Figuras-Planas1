@@ -5,7 +5,7 @@
 
 Dentro del blog: https://axelcotongutierrez.github.io/learningmathematicas/
 
-Vídeo Explicativo del código: https://www.youtube.com/
+Vídeo Explicativo del código: https://www.youtube.com/watch?v=bofTV_my1NY
 
 Juego para Infantil para aprender a distinguir entre el cuadrado, el círculo y el triángulo.
 
