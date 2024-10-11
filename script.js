@@ -84,6 +84,7 @@ function verificarRespuesta(respuesta) {
         result.style.color = "red";
         playAudio(intentarAudio); // Reproducir audio de inténtalo de nuevo
         gameOver = true; // Marcar el juego como terminado
+        incrementarContadorFirebase("Infantil/Matemáticas/Geometría/FormasBásicas", "figurasgeometricas1");
         disableGuessButtons(); // Deshabilitar los botones de respuesta
     }
 
